@@ -1,0 +1,121 @@
+{
+  "project_name": "Zero to AI Genesis",
+  "theme": "Dark Futuristic AI Lab",
+  "emotional_archetype": "Electric & Neon",
+  "typography": {
+    "font_families": {
+      "headings": "Space Grotesk, sans-serif",
+      "body": "Inter, sans-serif",
+      "code": "JetBrains Mono, monospace",
+      "accent": "Orbitron, sans-serif"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-bold tracking-tighter",
+      "h2": "text-3xl md:text-5xl font-bold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-semibold tracking-tight",
+      "body": "text-base md:text-lg leading-relaxed text-zinc-400",
+      "small": "text-sm font-medium tracking-wide uppercase text-zinc-500",
+      "code": "text-sm font-mono bg-zinc-900/50 p-1 rounded text-zinc-300"
+    },
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap"
+  },
+  "colors": {
+    "base": {
+      "background": "#0a0a0a",
+      "surface": "#121212",
+      "surface_highlight": "#18181b",
+      "border": "#27272a",
+      "text_primary": "#ededed",
+      "text_secondary": "#a1a1aa",
+      "text_muted": "#52525b"
+    },
+    "seasons": {
+      "s0": "#4CAF50",
+      "s1": "#2196F3",
+      "s2": "#FF9800",
+      "s3": "#9C27B0",
+      "s4": "#F44336",
+      "s5": "#00BCD4",
+      "s6": "#FF5722",
+      "s7": "#673AB7"
+    },
+    "accents": {
+      "neon_green": "#4ade80",
+      "neon_blue": "#60a5fa",
+      "neon_purple": "#c084fc",
+      "error": "#ef4444",
+      "success": "#22c55e",
+      "warning": "#eab308"
+    }
+  },
+  "layout": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "section_spacing": "py-24 md:py-32",
+    "grid_gap": "gap-8 md:gap-12",
+    "bento_grid": {
+      "wrapper": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "tall_item": "md:row-span-2",
+      "wide_item": "md:col-span-2"
+    }
+  },
+  "components": {
+    "glass_card": "bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-2xl shadow-2xl hover:border-white/10 transition-all duration-300",
+    "neon_button": "relative px-8 py-3 rounded-full font-medium tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 group",
+    "neon_button_primary": "bg-white text-black hover:bg-zinc-200 shadow-[0_0_20px_rgba(255,255,255,0.3)]",
+    "neon_button_outline": "bg-transparent border border-white/20 text-white hover:bg-white/5 hover:border-white/40",
+    "nav": "fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md border-b border-white/5 h-16 flex items-center justify-between px-6",
+    "season_badge": "inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border"
+  },
+  "visual_enhancers": {
+    "glow_effects": "shadow-[0_0_40px_-10px_rgba(var(--glow-color),0.3)]",
+    "gradient_text": "bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-500",
+    "subtle_grid": "bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]",
+    "noise_overlay": "before:content-[''] before:fixed before:inset-0 before:z-[9999] before:pointer-events-none before:bg-[url('https://grainy-gradients.vercel.app/noise.svg')] before:opacity-[0.03]"
+  },
+  "animation": {
+    "library": "framer-motion",
+    "transitions": {
+      "page": {
+        "initial": { "opacity": 0, "y": 20 },
+        "animate": { "opacity": 1, "y": 0 },
+        "exit": { "opacity": 0, "y": -20 },
+        "transition": { "duration": 0.4, "ease": "easeOut" }
+      },
+      "stagger_children": {
+        "animate": { "transition": { "staggerChildren": 0.1 } }
+      }
+    }
+  },
+  "image_urls": {
+    "hero_bg": "https://images.unsplash.com/photo-1605764949006-10d0e9e1437c?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "neural_network": "https://images.unsplash.com/photo-1764336312138-14a5368a6cd3?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "season_s3_bg": "https://images.unsplash.com/photo-1647356191320-d7a1f80ca777?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "season_s5_bg": "https://images.unsplash.com/photo-1728432757082-c02a02436937?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "abstract_glow": "https://images.unsplash.com/photo-1761740533449-b8d4385e60b0?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "instructions_to_main_agent": [
+    "1. INITIALIZE: Create a `tailwind.config.js` that extends the theme with the colors defined above. Add the fonts to `index.css` via @import.",
+    "2. GLOBAL STYLES: In `index.css`, set `body { @apply bg-[#0a0a0a] text-[#ededed] font-body antialiased; }`.",
+    "3. LAYOUT: Create a reusable `Layout` component that includes the Navbar and Footer. The Navbar should be sticky and glassmorphic.",
+    "4. LANDING PAGE: Build a Hero section with the 'Tetris' grid layout. Use `framer-motion` to animate elements in. Use the `bento_grid` classes for the features section.",
+    "5. ROADMAP: Create a vertical timeline or tree view for the roadmap. Each node should be clickable and lead to a Season page.",
+    "6. SEASON PAGES: Use a Sidebar layout for navigation between episodes. The main content area should feature the Algorithm Visualizer (D3.js) and explanation text.",
+    "7. REACT FLOW: When using React Flow, apply custom styles to nodes. Use `backdrop-blur` and borders that match the Season's color.",
+    "8. ALGORITHMS: For D3.js visualizations, ensure they are responsive and use the Season's color palette. They should be interactive (hover, click, drag).",
+    "9. ICONS: Use `lucide-react` for all UI icons. Keep them consistent in size (w-5 h-5 or w-6 h-6).",
+    "10. THEME: Enforce Dark Mode. Do not implement a light mode toggle unless specifically requested (the persona dictates a dark, moody 'Lab' feel).",
+    "11. UTILS: Create a `cn` utility function (using `clsx` and `tailwind-merge`) for dynamic class names."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "- Don't make generic centered layouts. Use asymmetry.",
+    "- Create depth through layered design elements with z-index hierarchy.",
+    "- Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "- Every interaction needs micro-animations (hover, focus, active).",
+    "- Use 2-3x more spacing than feels comfortable.",
+    "- Subtle grain textures and noise overlays are recommended.",
+    "- NEVER use AI assistant Emojis (🤖, 🧠, etc.) as primary icons. Use Lucide icons instead.",
+    "- Prioritize using pre-existing components from `src/components/ui`.",
+    "- Components MUST use named exports.",
+    "- Pages MUST use default exports."
+  ]
+}
