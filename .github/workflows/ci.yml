@@ -45,18 +45,7 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: Zero_to_AI_Genesis2/frontend
-        run: |
-          node -v
-          npm -v
-          npm ci
-
-      - name: Verify next is installed
-        working-directory: Zero_to_AI_Genesis2/frontend
-        run: npx next --version
-
-      - name: Clean stale build artifacts
-        working-directory: Zero_to_AI_Genesis2/frontend
-        run: rm -rf .next out
+        run: npm ci
 
       - name: Build frontend static export
         working-directory: Zero_to_AI_Genesis2/frontend
@@ -64,20 +53,4 @@ jobs:
           GITHUB_PAGES: 'true'
           GITHUB_REPOSITORY: ${{ github.repository }}
           NEXT_TELEMETRY_DISABLED: '1'
-        run: |
-          echo "GITHUB_PAGES=$GITHUB_PAGES"
-          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY"
-          npm run build:pages 2>&1 | tee /tmp/build.log || true
-          BUILD_EXIT=${PIPESTATUS[0]:-1}
-          if [ "$BUILD_EXIT" != "0" ]; then
-            echo "::error::Build failed. Last 100 lines:"
-            tail -100 /tmp/build.log
-            exit 1
-          fi
-
-      - name: Upload build log on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-log-ci
-          path: /tmp/build.log
+        run: npm run build:pages
