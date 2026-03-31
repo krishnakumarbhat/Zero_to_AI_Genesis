@@ -376,11 +376,21 @@ This repository includes a **fully interactive web application** built with Next
 
 ```bash
 cd frontend
-yarn install
-yarn dev
+npm install
+npm run dev
 ```
 
 Visit `http://localhost:3000` to explore the interactive learning platform.
+
+### Static Export for GitHub Pages
+
+```bash
+cd frontend
+npm run build:pages
+npm run preview
+```
+
+The production build is exported to `frontend/out/` and the repository now includes a GitHub Pages workflow that deploys that static output automatically.
 
 ---
 

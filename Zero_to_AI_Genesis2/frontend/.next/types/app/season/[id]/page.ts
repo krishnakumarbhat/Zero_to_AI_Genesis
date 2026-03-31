@@ -1,4 +1,4 @@
-// File: /app/frontend/src/app/season/[id]/page.tsx
+// File: /media/pope/projecteo/github_proj/Zero_to_AI_Genesis/Zero_to_AI_Genesis2/frontend/src/app/season/[id]/page.tsx
 import * as entry from '../../../../../src/app/season/[id]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

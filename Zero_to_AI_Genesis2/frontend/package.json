@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000 -H 0.0.0.0",
-    "start": "next dev -p 3000 -H 0.0.0.0",
-    "build": "next build"
+    "build": "next build",
+    "build:pages": "GITHUB_PAGES=true next build",
+    "preview": "serve out -l 3000",
+    "start": "serve out -l 3000"
   },
   "dependencies": {
     "next": "^14.2.15",
@@ -26,6 +28,7 @@
     "@types/node": "^22.8.6",
     "@types/d3": "^7.4.3",
     "@types/katex": "^0.16.7",
+    "serve": "^14.2.4",
     "tailwindcss": "^3.4.14",
     "postcss": "^8.4.47",
     "autoprefixer": "^10.4.20"

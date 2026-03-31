@@ -68,3 +68,8 @@ htmlcov/
 # Environment files
 *.env
 *.env.*
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/out/
+frontend/.next/

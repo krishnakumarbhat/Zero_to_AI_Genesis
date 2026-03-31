@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Cpu, Eye, Search, Database, GraduationCap, Bot, Gamepad2, Brain } from 'lucide-react';
+import { ArrowRight, Cpu, Eye, Search, Database, GraduationCap, Bot, Gamepad2, Brain, type LucideIcon } from 'lucide-react';
 import type { Season } from '@/data/seasons';
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+const iconMap: Record<string, LucideIcon> = {
   Cpu, Eye, Search, Database, GraduationCap, Bot, Gamepad2, Brain,
 };
 
