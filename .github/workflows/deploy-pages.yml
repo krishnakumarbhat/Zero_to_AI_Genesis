@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 permissions:
   contents: read
   pages: write
@@ -26,15 +29,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+          cache-dependency-path: Zero_to_AI_Genesis2/frontend/package-lock.json
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
 
       - name: Install frontend dependencies
         working-directory: Zero_to_AI_Genesis2/frontend
-        run: npm install
+        run: npm ci
 
       - name: Build static export
         working-directory: Zero_to_AI_Genesis2/frontend
         env:
           GITHUB_PAGES: 'true'
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          NEXT_TELEMETRY_DISABLED: '1'
         run: npm run build:pages
 
       - name: Upload Pages artifact
