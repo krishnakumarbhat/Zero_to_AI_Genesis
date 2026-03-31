@@ -5,9 +5,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
-
 permissions:
   contents: read
   pages: write
@@ -32,12 +29,13 @@ jobs:
           cache: npm
           cache-dependency-path: Zero_to_AI_Genesis2/frontend/package-lock.json
 
-      - name: Set up Pages
-        uses: actions/configure-pages@v5
-
       - name: Install frontend dependencies
         working-directory: Zero_to_AI_Genesis2/frontend
         run: npm ci
+
+      - name: Clean stale build artifacts
+        working-directory: Zero_to_AI_Genesis2/frontend
+        run: rm -rf .next out
 
       - name: Build static export
         working-directory: Zero_to_AI_Genesis2/frontend

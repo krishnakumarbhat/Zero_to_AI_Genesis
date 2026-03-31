@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,6 +48,10 @@ jobs:
       - name: Install frontend dependencies
         working-directory: Zero_to_AI_Genesis2/frontend
         run: npm ci
+
+      - name: Clean stale build artifacts
+        working-directory: Zero_to_AI_Genesis2/frontend
+        run: rm -rf .next out
 
       - name: Build frontend static export
         working-directory: Zero_to_AI_Genesis2/frontend
