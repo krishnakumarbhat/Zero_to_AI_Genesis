@@ -26,12 +26,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-          cache-dependency-path: Zero_to_AI_Genesis2/frontend/package-lock.json
 
       - name: Install frontend dependencies
         working-directory: Zero_to_AI_Genesis2/frontend
-        run: npm ci
+        run: |
+          node -v
+          npm -v
+          npm ci
+
+      - name: Verify next is installed
+        working-directory: Zero_to_AI_Genesis2/frontend
+        run: npx next --version
 
       - name: Clean stale build artifacts
         working-directory: Zero_to_AI_Genesis2/frontend
@@ -43,7 +48,10 @@ jobs:
           GITHUB_PAGES: 'true'
           GITHUB_REPOSITORY: ${{ github.repository }}
           NEXT_TELEMETRY_DISABLED: '1'
-        run: npm run build:pages
+        run: |
+          echo "GITHUB_PAGES=$GITHUB_PAGES"
+          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY"
+          npm run build:pages
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
