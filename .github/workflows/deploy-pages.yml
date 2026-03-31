@@ -51,7 +51,20 @@ jobs:
         run: |
           echo "GITHUB_PAGES=$GITHUB_PAGES"
           echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY"
-          npm run build:pages
+          npm run build:pages 2>&1 | tee /tmp/build.log || true
+          BUILD_EXIT=${PIPESTATUS[0]:-1}
+          if [ "$BUILD_EXIT" != "0" ]; then
+            echo "::error::Build failed. Last 100 lines:"
+            tail -100 /tmp/build.log
+            exit 1
+          fi
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log-deploy
+          path: /tmp/build.log
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
